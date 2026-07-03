@@ -1,0 +1,91 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Teachworks
+providerId: teachworks
+created: '2026-07-03'
+modified: '2026-07-03'
+reconciled: false
+tags:
+- Education
+- Tutoring
+- Business Management
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Teachworks spend. Teachworks is a SaaS subscription billed
+  monthly as a base plan fee plus a per-student-lesson usage charge, so the
+  dominant cost driver is lesson volume (number of students x lessons) rather
+  than API calls. The Teachworks API itself carries no metered fee; it is gated
+  by plan - available on Growth and Premium but not Starter. Cost optimization
+  is therefore a plan-selection exercise: higher plans trade a larger base fee
+  for a lower per-lesson rate, so the break-even depends on monthly student
+  lesson volume. Premium adds branch-account costs beyond the first five
+  branches.
+notes: >-
+  Verify current base fees and per-student-lesson rates on the Teachworks
+  pricing page during reconciliation. There is no separate API metering; API
+  access is a plan entitlement (Growth/Premium). Model total cost as
+  base_fee + (student_lessons * per_lesson_rate) + additional_branch_fees.
+sources:
+- https://www.teachworks.com/pricing
+- https://teachworks.com/addons/api
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Teachworks
+serviceCategory: Business Management Software
+billingModel:
+  pricingCategory: Subscription plus Usage
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+focusColumns:
+  ServiceName: Teachworks
+  ServiceCategory: Business Management Software
+  ProviderName: Teachworks
+  PublisherName: Teachworks
+  InvoiceIssuerName: Teachworks
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Subscription plus Usage
+meters:
+- name: base_subscription
+  description: Fixed monthly plan fee (Starter, Growth, or Premium).
+  unit: subscription
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: student_lessons
+  description: Per-student-lesson usage charge; a multi-student lesson counts once per student.
+  unit: lessons
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: additional_branches
+  description: Monthly fee per branch account beyond the first 5 (Premium plan).
+  unit: branches
+  aggregation: sum
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Track monthly student-lesson volume per account and branch, since usage charges scale with it; the API itself is not separately metered.
+- name: Allocation
+  description: Attribute base fee, per-lesson charges, and branch fees to locations or branches to map cost to revenue centers.
+- name: Optimization
+  description: Choose the plan whose base fee and per-lesson rate minimize total cost at your projected lesson volume; consolidate branches where possible.
+- name: Accountability
+  description: Assign an owner to review plan tier vs lesson volume monthly and confirm API access (Growth/Premium) matches integration needs.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

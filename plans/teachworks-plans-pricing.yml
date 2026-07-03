@@ -1,0 +1,166 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Teachworks
+providerId: teachworks
+created: '2026-07-03'
+modified: '2026-07-03'
+reconciled: false
+tags:
+- Education
+- Tutoring
+- Business Management
+- Plans
+- Pricing
+description: >-
+  Teachworks is billed as a monthly subscription with a base fee plus a
+  per-student-lesson usage charge, where a lesson with multiple students counts
+  as multiple student lessons. There are three plans - Starter, Growth, and
+  Premium - each with unlimited students, teachers, and user accounts and a
+  free 21-day trial. API access is included only on the Growth and Premium
+  plans; the Starter plan does not include the Teachworks API. Higher plan tiers
+  pay a larger base fee in exchange for a lower per-student-lesson rate, so the
+  cost model rewards higher lesson volume with a higher plan. Prices below are
+  as published and may change - verify on the Teachworks pricing page during
+  reconciliation.
+notes: >-
+  The API itself carries no separate fee; it is gated by plan (Growth or
+  Premium). Per-student-lesson pricing means monthly cost scales with lesson
+  volume. Premium additionally includes the first 5 branch accounts, with extra
+  branches billed separately.
+sources:
+- https://www.teachworks.com/pricing
+- https://teachworks.com/addons/api
+- https://documenter.getpostman.com/view/10096149/SWTABydD
+plans:
+- id: teachworks-starter
+  name: Starter
+  type: paid
+  description: >-
+    Entry plan for smaller businesses. Includes scheduling, billing, and CRM
+    with unlimited students, teachers, and user accounts. Does NOT include
+    Teachworks API access.
+  entries:
+  - label: Base Subscription
+    name: base_subscription
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 16.49 USD/month
+    userMultiplied: false
+  - label: Per Student Lesson
+    name: student_lesson
+    type: usage
+    metric: lessons
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0.32 USD per student lesson
+    userMultiplied: false
+  elements:
+  - name: Unlimited Students, Teachers, and Users
+  - name: Scheduling and Calendar
+  - name: Online Billing and Invoicing
+  - name: No API Access
+- id: teachworks-growth
+  name: Growth
+  type: paid
+  description: >-
+    Mid-tier plan with a lower per-student-lesson rate and Teachworks API
+    access included, for businesses that want custom integrations.
+  entries:
+  - label: Base Subscription
+    name: base_subscription
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 47.99 USD/month
+    userMultiplied: false
+  - label: Per Student Lesson
+    name: student_lesson
+    type: usage
+    metric: lessons
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0.189 USD per student lesson
+    userMultiplied: false
+  elements:
+  - name: Everything in Starter
+  - name: Teachworks API Access
+  - name: Zapier Integration
+  - name: Lower Per-Lesson Rate
+- id: teachworks-premium
+  name: Premium
+  type: paid
+  description: >-
+    Top-tier plan with the lowest per-student-lesson rate, Teachworks API
+    access, and multi-branch support (first 5 branch accounts included).
+  entries:
+  - label: Base Subscription
+    name: base_subscription
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 187.99 USD/month
+    userMultiplied: false
+  - label: Per Student Lesson
+    name: student_lesson
+    type: usage
+    metric: lessons
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0.065 USD per student lesson
+    userMultiplied: false
+  - label: Additional Branch Account
+    name: additional_branch
+    type: usage
+    metric: branches
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 35 USD/month per branch beyond the first 5
+    userMultiplied: false
+  elements:
+  - name: Everything in Growth
+  - name: Teachworks API Access
+  - name: First 5 Branch Accounts Included
+  - name: Lowest Per-Lesson Rate
+- id: teachworks-trial
+  name: Free Trial
+  type: free
+  description: >-
+    A free 21-day trial of Teachworks with no cancellation fees. Lets a business
+    evaluate scheduling, billing, and (on qualifying plans) the API before
+    subscribing.
+  entries:
+  - label: Trial Period
+    name: trial
+    type: flat
+    metric: days
+    limit: 21
+    timeFrame: day
+    geo: global
+    unit: 1
+    price: free for 21 days
+    userMultiplied: false
+  elements:
+  - name: Full Feature Evaluation
+  - name: No Cancellation Fees
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

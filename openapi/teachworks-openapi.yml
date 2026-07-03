@@ -1,0 +1,1204 @@
+openapi: 3.0.3
+info:
+  title: Teachworks API
+  description: >-
+    The Teachworks API is a REST API that lets Teachworks users build custom
+    integrations against the data in their Teachworks account - customers
+    (families and independent students), students, employees (teachers and
+    staff), lessons and events, services, invoices, payments, and teacher wages.
+    Teachworks is business management software for tutoring companies, music
+    schools, and test-prep centers. The API is available on the Growth and
+    Premium plans. All requests are made over HTTPS to
+    https://api.teachworks.com/v1 and authenticated with an account API token
+    passed in the Authorization header using the scheme
+    "Authorization: Token token=API_TOKEN". Responses are JSON. List endpoints
+    are paginated (20 records per page by default, up to 80 via per_page) and
+    support field-based search and id range filters. The API is rate limited to
+    4 requests per second per token. There is no native webhook or WebSocket
+    surface; event-driven integrations are handled through Zapier, Make, and
+    Integrately polling. All paths in this document are confirmed against the
+    official Teachworks Postman API reference.
+  version: '1.0'
+  contact:
+    name: Teachworks Support
+    url: https://teachworks.com/addons/api
+    email: support@teachworks.com
+servers:
+  - url: https://api.teachworks.com/v1
+    description: Teachworks API
+security:
+  - tokenAuth: []
+tags:
+  - name: Locations
+    description: Physical or virtual locations where lessons are delivered.
+  - name: Services
+    description: The billable services (lesson types) offered.
+  - name: Wage Tiers
+    description: Teacher wage tiers used to calculate pay.
+  - name: Cost Premiums
+    description: Cost premiums applied on top of base service rates.
+  - name: Employees
+    description: Teachers and staff, their status, earnings, and lesson totals.
+  - name: Customers
+    description: Billing accounts - families and independent students.
+  - name: Students
+    description: Child and independent students and their lesson totals.
+  - name: Subjects
+    description: Subjects taught.
+  - name: Student Groups
+    description: Groups of students for group lessons.
+  - name: Lessons
+    description: Scheduled lessons, participants, and completion.
+  - name: Lesson Participants
+    description: Per-student rows attached to a lesson.
+  - name: Other Events
+    description: Non-teaching calendar events.
+  - name: Availabilities
+    description: Employee availability windows.
+  - name: Unavailabilities
+    description: Employee unavailability windows.
+  - name: Invoices
+    description: Customer invoices.
+  - name: Payments
+    description: Customer payments.
+  - name: Payment Allocations
+    description: Allocations of payments to invoices.
+  - name: Credit Note Allocations
+    description: Allocations of credit notes to invoices.
+  - name: Other Compensation
+    description: Employee compensation outside of lesson wages.
+  - name: Wage Payments
+    description: Wage payments to employees.
+  - name: Result Groups
+    description: Groupings of student results.
+  - name: Results
+    description: Student progress results.
+  - name: Repertoires
+    description: Repertoire items (e.g. for music lessons).
+paths:
+  /locations:
+    get:
+      operationId: listLocations
+      tags: [Locations]
+      summary: List all Locations
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createLocation
+      tags: [Locations]
+      summary: Create a Location
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /locations/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getLocation
+      tags: [Locations]
+      summary: Retrieve a Location
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateLocation
+      tags: [Locations]
+      summary: Update a Location
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /services:
+    get:
+      operationId: listServices
+      tags: [Services]
+      summary: List all Services
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /services/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getService
+      tags: [Services]
+      summary: Retrieve a Service
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /wage_tiers:
+    get:
+      operationId: listWageTiers
+      tags: [Wage Tiers]
+      summary: List all Wage Tiers
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /wage_tiers/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getWageTier
+      tags: [Wage Tiers]
+      summary: Retrieve a Wage Tier
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /cost_premiums:
+    get:
+      operationId: listCostPremiums
+      tags: [Cost Premiums]
+      summary: List all Cost Premiums
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /cost_premiums/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getCostPremium
+      tags: [Cost Premiums]
+      summary: Retrieve a Cost Premium
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /employees:
+    get:
+      operationId: listEmployees
+      tags: [Employees]
+      summary: List all Employees
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createEmployee
+      tags: [Employees]
+      summary: Create an Employee
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /employees/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getEmployee
+      tags: [Employees]
+      summary: Retrieve an Employee
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateEmployee
+      tags: [Employees]
+      summary: Update an Employee
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /employees/{id}/earnings:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getEmployeeEarnings
+      tags: [Employees]
+      summary: Retrieve Employee Earnings
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /employees/{id}/lesson_totals:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getEmployeeLessonTotals
+      tags: [Employees]
+      summary: Retrieve Employee Lesson Totals
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /employees/{id}/set_status:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    put:
+      operationId: setEmployeeStatus
+      tags: [Employees]
+      summary: Set Employee Status
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /employees/{id}/custom_fields:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    put:
+      operationId: setEmployeeCustomFields
+      tags: [Employees]
+      summary: Set Custom Field Values
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /customers:
+    get:
+      operationId: listCustomers
+      tags: [Customers]
+      summary: List all Customers
+      description: >-
+        Returns customer profiles (family and independent student). Supports
+        search by first_name, last_name, email, phone_number, city, state, zip,
+        country, type (family or independent), and status (Active, Inactive,
+        Prospective), plus id range filters and sort direction.
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+        - name: type
+          in: query
+          schema:
+            type: string
+            enum: [family, independent]
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [Active, Inactive, Prospective]
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /customers/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getCustomer
+      tags: [Customers]
+      summary: Retrieve a Customer
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateCustomer
+      tags: [Customers]
+      summary: Update a Customer (Family or Independent Student)
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /customers/{id}/lesson_totals:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getCustomerLessonTotals
+      tags: [Customers]
+      summary: Retrieve Customer Lesson Totals
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /customers/{id}/custom_fields:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    put:
+      operationId: setCustomerCustomFields
+      tags: [Customers]
+      summary: Set Custom Field Values
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /customers/family:
+    post:
+      operationId: createFamily
+      tags: [Customers]
+      summary: Create a Family
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /customers/independent_student:
+    post:
+      operationId: createIndependentStudent
+      tags: [Customers]
+      summary: Create an Independent Student
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /students:
+    get:
+      operationId: listStudents
+      tags: [Students]
+      summary: List all Students
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createStudent
+      tags: [Students]
+      summary: Create a Child Student
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /students/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getStudent
+      tags: [Students]
+      summary: Retrieve a Student
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateStudent
+      tags: [Students]
+      summary: Update a Child Student
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /students/{id}/lesson_totals:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getStudentLessonTotals
+      tags: [Students]
+      summary: Retrieve Student Lesson Totals
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /students/{id}/custom_fields:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    put:
+      operationId: setStudentCustomFields
+      tags: [Students]
+      summary: Set Custom Field Values
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /subjects:
+    get:
+      operationId: listSubjects
+      tags: [Subjects]
+      summary: List all Subjects
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /subjects/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getSubject
+      tags: [Subjects]
+      summary: Retrieve a Subject
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /student_groups:
+    get:
+      operationId: listStudentGroups
+      tags: [Student Groups]
+      summary: List all Student Groups
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /student_groups/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getStudentGroup
+      tags: [Student Groups]
+      summary: Retrieve a Student Group
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /lessons:
+    get:
+      operationId: listLessons
+      tags: [Lessons]
+      summary: List all Lessons
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createLesson
+      tags: [Lessons]
+      summary: Create a Lesson
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /lessons/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getLesson
+      tags: [Lessons]
+      summary: Retrieve a Lesson
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /lessons/{id}/add_student:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    put:
+      operationId: addStudentToLesson
+      tags: [Lessons]
+      summary: Add Student to Lesson
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /lessons/{id}/complete:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    put:
+      operationId: completeLesson
+      tags: [Lessons]
+      summary: Complete a Lesson
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /lesson_participants:
+    get:
+      operationId: listLessonParticipants
+      tags: [Lesson Participants]
+      summary: List all Lesson Participants
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /lesson_participants/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getLessonParticipant
+      tags: [Lesson Participants]
+      summary: Retrieve a Lesson Participant
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /other_events:
+    get:
+      operationId: listOtherEvents
+      tags: [Other Events]
+      summary: List all Other Events
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /other_events/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getOtherEvent
+      tags: [Other Events]
+      summary: Retrieve an Other Event
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /availabilities:
+    get:
+      operationId: listAvailabilities
+      tags: [Availabilities]
+      summary: List all Availabilities
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /availabilities/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getAvailability
+      tags: [Availabilities]
+      summary: Retrieve an Availability
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /unavailabilities:
+    get:
+      operationId: listUnavailabilities
+      tags: [Unavailabilities]
+      summary: List all Unavailabilities
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /unavailabilities/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getUnavailability
+      tags: [Unavailabilities]
+      summary: Retrieve an Unavailability
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /invoices:
+    get:
+      operationId: listInvoices
+      tags: [Invoices]
+      summary: List all Invoices
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /invoices/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getInvoice
+      tags: [Invoices]
+      summary: Retrieve an Invoice
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /payments:
+    get:
+      operationId: listPayments
+      tags: [Payments]
+      summary: List all Payments
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createPayment
+      tags: [Payments]
+      summary: Create a Payment
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /payments/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getPayment
+      tags: [Payments]
+      summary: Retrieve a Payment
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updatePayment
+      tags: [Payments]
+      summary: Update a Payment
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /payment_allocations:
+    get:
+      operationId: listPaymentAllocations
+      tags: [Payment Allocations]
+      summary: List all Payment Allocations
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createPaymentAllocation
+      tags: [Payment Allocations]
+      summary: Create a Payment Allocation
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /payment_allocations/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getPaymentAllocation
+      tags: [Payment Allocations]
+      summary: Retrieve a Payment Allocation
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /credit_note_allocations:
+    get:
+      operationId: listCreditNoteAllocations
+      tags: [Credit Note Allocations]
+      summary: List all Credit Note Allocations
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /credit_note_allocations/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getCreditNoteAllocation
+      tags: [Credit Note Allocations]
+      summary: Retrieve a Credit Note Allocation
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /other_compensation:
+    get:
+      operationId: listOtherCompensation
+      tags: [Other Compensation]
+      summary: List all Compensation
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createOtherCompensation
+      tags: [Other Compensation]
+      summary: Create Other Compensation
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /other_compensation/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getOtherCompensation
+      tags: [Other Compensation]
+      summary: Retrieve Compensation
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /wage_payments:
+    get:
+      operationId: listWagePayments
+      tags: [Wage Payments]
+      summary: List all Wage Payments
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createWagePayment
+      tags: [Wage Payments]
+      summary: Create a Wage Payment
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /wage_payments/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getWagePayment
+      tags: [Wage Payments]
+      summary: Retrieve a Wage Payment
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateWagePayment
+      tags: [Wage Payments]
+      summary: Update a Wage Payment
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /result_groups:
+    get:
+      operationId: listResultGroups
+      tags: [Result Groups]
+      summary: List all Result Groups
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /result_groups/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getResultGroup
+      tags: [Result Groups]
+      summary: Retrieve a Result Group
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /results:
+    get:
+      operationId: listResults
+      tags: [Results]
+      summary: List all Results
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createResult
+      tags: [Results]
+      summary: Create a Result
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /results/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getResult
+      tags: [Results]
+      summary: Retrieve a Result
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateResult
+      tags: [Results]
+      summary: Update a Result
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /repertoires:
+    get:
+      operationId: listRepertoires
+      tags: [Repertoires]
+      summary: List all Repertoires
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createRepertoire
+      tags: [Repertoires]
+      summary: Create a Repertoire
+      requestBody:
+        $ref: '#/components/requestBodies/GenericJson'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /repertoires/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getRepertoire
+      tags: [Repertoires]
+      summary: Retrieve a Repertoire
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        Account API token passed in the Authorization header using the scheme
+        "Authorization: Token token=API_TOKEN". Generate a token on the
+        Integrations and Add-ons page in Teachworks. All requests must be over
+        HTTPS.
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The ID of the resource.
+      schema:
+        type: integer
+    Page:
+      name: page
+      in: query
+      required: false
+      description: 1-based page number for pagination. Defaults to 1.
+      schema:
+        type: integer
+        default: 1
+    PerPage:
+      name: per_page
+      in: query
+      required: false
+      description: Number of records per page. Defaults to 20, maximum 80.
+      schema:
+        type: integer
+        default: 20
+        maximum: 80
+  requestBodies:
+    GenericJson:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: true
+  responses:
+    CollectionOk:
+      description: A paginated list of resources.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              additionalProperties: true
+    ResourceOk:
+      description: A single resource.
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: true
+    Unauthorized:
+      description: Missing or invalid API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    UnprocessableEntity:
+      description: Validation failed for the submitted attributes.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string

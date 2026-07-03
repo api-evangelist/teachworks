@@ -1,0 +1,62 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Teachworks
+providerId: teachworks
+created: '2026-07-03'
+modified: '2026-07-03'
+reconciled: false
+tags:
+- Education
+- Tutoring
+- Rate Limiting
+- Quotas
+- Pagination
+description: >-
+  The Teachworks API publishes a fixed per-token rate limit of 4 requests per
+  second. Rate limiting is scoped to the API token, so all integrations sharing
+  a token share the budget. List endpoints are paginated - 20 records per page
+  by default, configurable with the per_page parameter up to a maximum of 80,
+  and navigated with a 1-based page parameter. The published usage policy also
+  prohibits excessive requests and retrieving records in a continuous loop, and
+  states the API is not intended for bulk backups (use the in-app Excel download
+  feature for that). All requests must be made over HTTPS.
+notes: >-
+  The documented hard limit is 4 requests/second per API token. Clients should
+  paginate (per_page up to 80), use the id range filters (id[gt], id[lt],
+  id[gte], id[lte]) to page through large datasets efficiently, and back off on
+  throttling rather than polling in a tight loop.
+sources:
+- https://documenter.getpostman.com/view/10096149/SWTABydD
+- https://teachworks.com/addons/api
+- https://teachworks.zendesk.com/hc/en-us/articles/360038657531-Zapier-Integration
+responseCodes:
+  throttled: 429
+limits:
+- name: Requests Per Token
+  scope: token
+  metric: requests
+  limit: 4 per second
+  notes: Documented hard limit; the API is rate limited by API token at 4 requests per second.
+- name: Default Page Size
+  scope: request
+  metric: records
+  limit: 20 per page
+  notes: List endpoints return 20 records per page by default.
+- name: Maximum Page Size
+  scope: request
+  metric: records
+  limit: 80 per page
+  notes: The per_page parameter can raise the page size to a maximum of 80 records.
+policies:
+- name: No Continuous Looping
+  description: The usage policy prohibits excessive requests and retrieving records in a continuous loop.
+- name: Not For Backups
+  description: The API is not intended for backing up records; account backups should use the in-app Excel download feature.
+- name: HTTPS Only
+  description: All API requests must be made over HTTPS; plain HTTP calls fail.
+- name: Backoff Strategy
+  description: Clients should honor 429 responses with exponential backoff and stay within the 4 requests/second per-token budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

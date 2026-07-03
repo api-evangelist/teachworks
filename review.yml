@@ -1,0 +1,152 @@
+aid: teachworks
+name: Teachworks
+review:
+  question: Does Teachworks expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-03'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. The Teachworks public API is a
+    request/response REST API over HTTPS with no server-push transport
+    (WebSocket or SSE). Teachworks does not offer native webhooks either;
+    event-driven integrations are delivered by third-party polling platforms
+    (Zapier, Make, Integrately) that call the same REST endpoints on a schedule.
+    There is no Teachworks-hosted streaming or realtime surface to model.
+findings:
+  summary: |
+    Teachworks does not publish a documented public WebSocket API. Teachworks is
+    business management software for tutoring companies, music schools, and
+    test-prep centers. Its public API is a REST API at
+    https://api.teachworks.com/v1, authenticated with an account API token via
+    the Authorization header ("Authorization: Token token=API_TOKEN") over
+    HTTPS, returning JSON. All documented endpoints are request/response REST
+    over resources such as customers, students, employees, lessons, services,
+    invoices, payments, and wages. List endpoints are paginated (20 per page,
+    up to 80 via per_page) and the API is rate limited to 4 requests per second
+    per token. No realtime, bidirectional, or streaming WebSocket (ws:// or
+    wss://) endpoint is documented anywhere in the Teachworks API reference.
+  webhooks: |
+    Teachworks has no native webhook API. Adding webhooks is an openly
+    requested-but-unshipped feature on the Teachworks feedback board. Real-time
+    style integrations are instead handled by third-party automation platforms
+    (Zapier, Make, Integrately) which POLL the Teachworks REST API on a schedule
+    (Zapier triggers poll a single page, up to 100 records) rather than
+    receiving pushed events. The API is available only on the Growth and
+    Premium plans.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.teachworks.com/v1
+      documented: true
+      note: Token-authenticated request/response REST API returning JSON. The only documented Teachworks API surface.
+    - protocol: Webhook
+      scheme: https
+      documented: false
+      note: No native Teachworks webhooks. Event delivery is via third-party polling integrations (Zapier, Make, Integrately), not server push. Native webhooks are a requested feature.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in the Teachworks API reference as of the review date.
+  endpointsConfirmedRest:
+    - GET    https://api.teachworks.com/v1/locations
+    - POST   https://api.teachworks.com/v1/locations
+    - GET    https://api.teachworks.com/v1/locations/{id}
+    - PUT    https://api.teachworks.com/v1/locations/{id}
+    - GET    https://api.teachworks.com/v1/services
+    - GET    https://api.teachworks.com/v1/services/{id}
+    - GET    https://api.teachworks.com/v1/wage_tiers
+    - GET    https://api.teachworks.com/v1/wage_tiers/{id}
+    - GET    https://api.teachworks.com/v1/cost_premiums
+    - GET    https://api.teachworks.com/v1/cost_premiums/{id}
+    - GET    https://api.teachworks.com/v1/employees
+    - POST   https://api.teachworks.com/v1/employees
+    - GET    https://api.teachworks.com/v1/employees/{id}
+    - PUT    https://api.teachworks.com/v1/employees/{id}
+    - GET    https://api.teachworks.com/v1/employees/{id}/earnings
+    - GET    https://api.teachworks.com/v1/employees/{id}/lesson_totals
+    - PUT    https://api.teachworks.com/v1/employees/{id}/set_status
+    - PUT    https://api.teachworks.com/v1/employees/{id}/custom_fields
+    - GET    https://api.teachworks.com/v1/customers
+    - GET    https://api.teachworks.com/v1/customers/{id}
+    - GET    https://api.teachworks.com/v1/customers/{id}/lesson_totals
+    - POST   https://api.teachworks.com/v1/customers/family
+    - POST   https://api.teachworks.com/v1/customers/independent_student
+    - PUT    https://api.teachworks.com/v1/customers/{id}
+    - PUT    https://api.teachworks.com/v1/customers/{id}/custom_fields
+    - GET    https://api.teachworks.com/v1/students
+    - POST   https://api.teachworks.com/v1/students
+    - GET    https://api.teachworks.com/v1/students/{id}
+    - PUT    https://api.teachworks.com/v1/students/{id}
+    - GET    https://api.teachworks.com/v1/students/{id}/lesson_totals
+    - PUT    https://api.teachworks.com/v1/students/{id}/custom_fields
+    - GET    https://api.teachworks.com/v1/subjects
+    - GET    https://api.teachworks.com/v1/subjects/{id}
+    - GET    https://api.teachworks.com/v1/student_groups
+    - GET    https://api.teachworks.com/v1/student_groups/{id}
+    - GET    https://api.teachworks.com/v1/lessons
+    - POST   https://api.teachworks.com/v1/lessons
+    - GET    https://api.teachworks.com/v1/lessons/{id}
+    - PUT    https://api.teachworks.com/v1/lessons/{id}/add_student
+    - PUT    https://api.teachworks.com/v1/lessons/{id}/complete
+    - GET    https://api.teachworks.com/v1/lesson_participants
+    - GET    https://api.teachworks.com/v1/lesson_participants/{id}
+    - GET    https://api.teachworks.com/v1/other_events
+    - GET    https://api.teachworks.com/v1/other_events/{id}
+    - GET    https://api.teachworks.com/v1/availabilities
+    - GET    https://api.teachworks.com/v1/availabilities/{id}
+    - GET    https://api.teachworks.com/v1/unavailabilities
+    - GET    https://api.teachworks.com/v1/unavailabilities/{id}
+    - GET    https://api.teachworks.com/v1/invoices
+    - GET    https://api.teachworks.com/v1/invoices/{id}
+    - GET    https://api.teachworks.com/v1/payments
+    - POST   https://api.teachworks.com/v1/payments
+    - GET    https://api.teachworks.com/v1/payments/{id}
+    - PUT    https://api.teachworks.com/v1/payments/{id}
+    - GET    https://api.teachworks.com/v1/payment_allocations
+    - POST   https://api.teachworks.com/v1/payment_allocations
+    - GET    https://api.teachworks.com/v1/payment_allocations/{id}
+    - GET    https://api.teachworks.com/v1/credit_note_allocations
+    - GET    https://api.teachworks.com/v1/credit_note_allocations/{id}
+    - GET    https://api.teachworks.com/v1/other_compensation
+    - POST   https://api.teachworks.com/v1/other_compensation
+    - GET    https://api.teachworks.com/v1/other_compensation/{id}
+    - GET    https://api.teachworks.com/v1/wage_payments
+    - POST   https://api.teachworks.com/v1/wage_payments
+    - GET    https://api.teachworks.com/v1/wage_payments/{id}
+    - PUT    https://api.teachworks.com/v1/wage_payments/{id}
+    - GET    https://api.teachworks.com/v1/result_groups
+    - GET    https://api.teachworks.com/v1/result_groups/{id}
+    - GET    https://api.teachworks.com/v1/results
+    - POST   https://api.teachworks.com/v1/results
+    - GET    https://api.teachworks.com/v1/results/{id}
+    - PUT    https://api.teachworks.com/v1/results/{id}
+    - GET    https://api.teachworks.com/v1/repertoires
+    - POST   https://api.teachworks.com/v1/repertoires
+    - GET    https://api.teachworks.com/v1/repertoires/{id}
+  endpointsModeled: []
+sources:
+  - url: https://teachworks.com/addons/api
+    type: Documentation
+    note: Official Teachworks API add-on page; API available on Growth and Premium plans, over 65 endpoints.
+  - url: https://documenter.getpostman.com/view/10096149/SWTABydD
+    type: APIReference
+    note: Official Teachworks Postman API reference. Source of the confirmed endpoint list, token auth scheme, pagination, and the 4 requests/second rate limit. All REST; no WebSocket.
+  - url: https://www.teachworks.com/pricing
+    type: Pricing
+    note: Starter/Growth/Premium plans; base fee plus per-student-lesson charge. API access on Growth and Premium.
+  - url: https://teachworks.featureupvote.com/suggestions/94369/add-webhooks-to-the-teachworks-api
+    type: Feedback
+    note: Native webhooks are a requested-but-unshipped feature, confirming there is no native webhook (or WebSocket) push surface.
+  - url: https://teachworks.zendesk.com/hc/en-us/articles/360038657531-Zapier-Integration
+    type: Documentation
+    note: Zapier integration uses polling (single page, up to 100 records) and requires API access (Growth/Premium). Confirms no push transport.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists on the Teachworks API, and no native
+    webhook surface exists either. The entire public API is request/response
+    REST over HTTPS. No AsyncAPI document was created because there is no
+    server-push transport on Teachworks' own API to model; third-party
+    automation platforms integrate by polling the REST endpoints.

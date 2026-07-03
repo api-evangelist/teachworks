@@ -1,0 +1,273 @@
+aid: teachworks
+url: https://raw.githubusercontent.com/api-evangelist/teachworks/refs/heads/main/apis.yml
+name: Teachworks
+kind: company
+description: Teachworks is business management software for tutoring companies, music
+  schools, test-prep centers, and other education businesses. It handles scheduling,
+  student and family CRM, teacher management, lesson and event calendars, online
+  billing and invoicing, payments, and teacher wages. The Teachworks API is a REST
+  API (base https://api.teachworks.com/v1, token authentication over HTTPS) that
+  exposes account data - customers, students, employees, lessons, services,
+  invoices, payments, and wages - so companies can build custom integrations. The
+  API is available on the Growth and Premium plans; there is no native webhook or
+  WebSocket surface, and event-driven integrations are delivered through Zapier,
+  Make, and Integrately polling.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Education
+- Tutoring
+- EdTech
+- Scheduling
+- Business Management
+- CRM
+- Billing
+created: '2026-07-03'
+modified: '2026-07-03'
+specificationVersion: '0.19'
+apis:
+- aid: teachworks:teachworks-customers-api
+  name: Teachworks Customers API
+  tags:
+  - Customers
+  - Families
+  - CRM
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://documenter.getpostman.com/view/10096149/SWTABydD
+  baseURL: https://api.teachworks.com/v1
+  properties:
+  - url: https://teachworks.com/addons/api
+    type: Documentation
+  - url: https://documenter.getpostman.com/view/10096149/SWTABydD
+    type: APIReference
+  - url: openapi/teachworks-openapi.yml
+    type: OpenAPI
+  - url: collections/teachworks.postman_collection.json
+    type: PostmanCollection
+  - url: collections/teachworks.opencollection.json
+    type: OpenCollection
+  description: List, retrieve, create, and update customer profiles - the billing
+    account that is either a family or an independent student. Create families and
+    independent students, set custom field values, and retrieve lesson totals for a
+    customer.
+- aid: teachworks:teachworks-students-api
+  name: Teachworks Students API
+  tags:
+  - Students
+  - Enrollment
+  - CRM
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://documenter.getpostman.com/view/10096149/SWTABydD
+  baseURL: https://api.teachworks.com/v1
+  properties:
+  - url: https://teachworks.com/addons/api
+    type: Documentation
+  - url: https://documenter.getpostman.com/view/10096149/SWTABydD
+    type: APIReference
+  - url: openapi/teachworks-openapi.yml
+    type: OpenAPI
+  - url: collections/teachworks.postman_collection.json
+    type: PostmanCollection
+  - url: collections/teachworks.opencollection.json
+    type: OpenCollection
+  description: List, retrieve, create, and update students - both child students
+    belonging to a family and independent students. Set custom field values and
+    retrieve per-student lesson totals. Student groups organize students for group
+    lessons.
+- aid: teachworks:teachworks-employees-api
+  name: Teachworks Employees API
+  tags:
+  - Employees
+  - Teachers
+  - Staff
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://documenter.getpostman.com/view/10096149/SWTABydD
+  baseURL: https://api.teachworks.com/v1
+  properties:
+  - url: https://teachworks.com/addons/api
+    type: Documentation
+  - url: https://documenter.getpostman.com/view/10096149/SWTABydD
+    type: APIReference
+  - url: openapi/teachworks-openapi.yml
+    type: OpenAPI
+  - url: collections/teachworks.postman_collection.json
+    type: PostmanCollection
+  - url: collections/teachworks.opencollection.json
+    type: OpenCollection
+  description: Manage employees (teachers and staff) - list, retrieve, create, and
+    update employees, set their status, set custom field values, and retrieve an
+    employee's earnings and lesson totals.
+- aid: teachworks:teachworks-lessons-api
+  name: Teachworks Lessons API
+  tags:
+  - Lessons
+  - Scheduling
+  - Calendar
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://documenter.getpostman.com/view/10096149/SWTABydD
+  baseURL: https://api.teachworks.com/v1
+  properties:
+  - url: https://teachworks.com/addons/api
+    type: Documentation
+  - url: https://documenter.getpostman.com/view/10096149/SWTABydD
+    type: APIReference
+  - url: openapi/teachworks-openapi.yml
+    type: OpenAPI
+  - url: collections/teachworks.postman_collection.json
+    type: PostmanCollection
+  - url: collections/teachworks.opencollection.json
+    type: OpenCollection
+  description: List, retrieve, and create lessons; add students to a lesson and mark
+    a lesson complete. Lesson participants expose the per-student attendance and
+    billing rows attached to each lesson.
+- aid: teachworks:teachworks-events-api
+  name: Teachworks Events and Availability API
+  tags:
+  - Events
+  - Availability
+  - Calendar
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://documenter.getpostman.com/view/10096149/SWTABydD
+  baseURL: https://api.teachworks.com/v1
+  properties:
+  - url: https://teachworks.com/addons/api
+    type: Documentation
+  - url: https://documenter.getpostman.com/view/10096149/SWTABydD
+    type: APIReference
+  - url: openapi/teachworks-openapi.yml
+    type: OpenAPI
+  - url: collections/teachworks.postman_collection.json
+    type: PostmanCollection
+  - url: collections/teachworks.opencollection.json
+    type: OpenCollection
+  description: List and retrieve non-teaching calendar events (other events) and read
+    employee availabilities and unavailabilities that drive scheduling.
+- aid: teachworks:teachworks-services-api
+  name: Teachworks Services and Subjects API
+  tags:
+  - Services
+  - Subjects
+  - Locations
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://documenter.getpostman.com/view/10096149/SWTABydD
+  baseURL: https://api.teachworks.com/v1
+  properties:
+  - url: https://teachworks.com/addons/api
+    type: Documentation
+  - url: https://documenter.getpostman.com/view/10096149/SWTABydD
+    type: APIReference
+  - url: openapi/teachworks-openapi.yml
+    type: OpenAPI
+  - url: collections/teachworks.postman_collection.json
+    type: PostmanCollection
+  - url: collections/teachworks.opencollection.json
+    type: OpenCollection
+  description: Read the catalog that lessons are built from - services, subjects,
+    student groups, wage tiers, and cost premiums - plus create, retrieve, and
+    update locations where lessons are delivered.
+- aid: teachworks:teachworks-invoices-api
+  name: Teachworks Invoices API
+  tags:
+  - Invoices
+  - Billing
+  - Credit Notes
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://documenter.getpostman.com/view/10096149/SWTABydD
+  baseURL: https://api.teachworks.com/v1
+  properties:
+  - url: https://teachworks.com/addons/api
+    type: Documentation
+  - url: https://documenter.getpostman.com/view/10096149/SWTABydD
+    type: APIReference
+  - url: openapi/teachworks-openapi.yml
+    type: OpenAPI
+  - url: collections/teachworks.postman_collection.json
+    type: PostmanCollection
+  - url: collections/teachworks.opencollection.json
+    type: OpenCollection
+  description: List and retrieve customer invoices and read credit note allocations
+    that apply credits against invoices.
+- aid: teachworks:teachworks-payments-api
+  name: Teachworks Payments API
+  tags:
+  - Payments
+  - Billing
+  - Allocations
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://documenter.getpostman.com/view/10096149/SWTABydD
+  baseURL: https://api.teachworks.com/v1
+  properties:
+  - url: https://teachworks.com/addons/api
+    type: Documentation
+  - url: https://documenter.getpostman.com/view/10096149/SWTABydD
+    type: APIReference
+  - url: openapi/teachworks-openapi.yml
+    type: OpenAPI
+  - url: collections/teachworks.postman_collection.json
+    type: PostmanCollection
+  - url: collections/teachworks.opencollection.json
+    type: OpenCollection
+  description: List, retrieve, create, and update customer payments, and list,
+    retrieve, and create payment allocations that apply a payment to specific
+    invoices.
+- aid: teachworks:teachworks-wages-api
+  name: Teachworks Wages API
+  tags:
+  - Wages
+  - Payroll
+  - Compensation
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://documenter.getpostman.com/view/10096149/SWTABydD
+  baseURL: https://api.teachworks.com/v1
+  properties:
+  - url: https://teachworks.com/addons/api
+    type: Documentation
+  - url: https://documenter.getpostman.com/view/10096149/SWTABydD
+    type: APIReference
+  - url: openapi/teachworks-openapi.yml
+    type: OpenAPI
+  - url: collections/teachworks.postman_collection.json
+    type: PostmanCollection
+  - url: collections/teachworks.opencollection.json
+    type: OpenCollection
+  description: Manage teacher pay - list, retrieve, create, and update wage payments,
+    and list, retrieve, and create other compensation records outside of lesson
+    wages.
+- aid: teachworks:teachworks-results-api
+  name: Teachworks Results and Repertoires API
+  tags:
+  - Results
+  - Progress
+  - Repertoires
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://documenter.getpostman.com/view/10096149/SWTABydD
+  baseURL: https://api.teachworks.com/v1
+  properties:
+  - url: https://teachworks.com/addons/api
+    type: Documentation
+  - url: https://documenter.getpostman.com/view/10096149/SWTABydD
+    type: APIReference
+  - url: openapi/teachworks-openapi.yml
+    type: OpenAPI
+  - url: collections/teachworks.postman_collection.json
+    type: PostmanCollection
+  - url: collections/teachworks.opencollection.json
+    type: OpenCollection
+  description: Track student progress - list, retrieve, create, and update results
+    and result groups, and manage repertoire items (for music lessons) attached to
+    students.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/teachworks
+- type: Website
+  url: https://teachworks.com
+- type: Documentation
+  url: https://teachworks.com/addons/api
+- type: Plans
+  url: plans/teachworks-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/teachworks-rate-limits.yml
+- type: FinOps
+  url: finops/teachworks-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
