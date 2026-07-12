@@ -256,6 +256,12 @@ apis:
     and result groups, and manage repertoire items (for music lessons) attached to
     students.
 common:
+- type: VulnerabilityDisclosure
+  url: security/teachworks-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/teachworks-domain-security.yml
+- type: Authentication
+  url: authentication/teachworks-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/teachworks
 - type: Website
@@ -268,6 +274,8 @@ common:
   url: rate-limits/teachworks-rate-limits.yml
 - type: FinOps
   url: finops/teachworks-finops.yml
+- type: Blog
+  url: https://blog.teachworks.com/feed/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

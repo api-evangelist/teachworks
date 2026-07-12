@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/teachworks-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: tokenAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: 'Account API token passed in the Authorization header using the scheme "Authorization:
+    Token token=API_TOKEN". Generate a token on the Integrations and Add-ons page in Teachworks.
+    All requests must be over HTTPS.'
+  sources:
+  - openapi/teachworks-openapi.yml
