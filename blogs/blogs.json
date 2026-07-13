@@ -1,0 +1,13 @@
+{
+  "repo": "teachworks",
+  "feeds": [
+    {
+      "source": "https://blog.teachworks.com",
+      "feed_url": "https://blog.teachworks.com/feed/",
+      "title": "Teachworks Blog",
+      "saved": 0
+    }
+  ],
+  "fetched": "2026-07-11T11:43:46Z",
+  "post_count": 10
+}
