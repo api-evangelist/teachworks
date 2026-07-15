@@ -256,6 +256,8 @@ apis:
     and result groups, and manage repertoire items (for music lessons) attached to
     students.
 common:
+- type: AgenticAccess
+  url: agentic-access/teachworks-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/teachworks-vulnerability-disclosure.yml
 - type: DomainSecurity
