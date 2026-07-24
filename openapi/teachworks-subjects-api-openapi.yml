@@ -1,0 +1,118 @@
+openapi: 3.0.3
+info:
+  title: Teachworks Availabilities Subjects API
+  description: 'The Teachworks API is a REST API that lets Teachworks users build custom integrations against the data in their Teachworks account - customers (families and independent students), students, employees (teachers and staff), lessons and events, services, invoices, payments, and teacher wages. Teachworks is business management software for tutoring companies, music schools, and test-prep centers. The API is available on the Growth and Premium plans. All requests are made over HTTPS to https://api.teachworks.com/v1 and authenticated with an account API token passed in the Authorization header using the scheme "Authorization: Token token=API_TOKEN". Responses are JSON. List endpoints are paginated (20 records per page by default, up to 80 via per_page) and support field-based search and id range filters. The API is rate limited to 4 requests per second per token. There is no native webhook or WebSocket surface; event-driven integrations are handled through Zapier, Make, and Integrately polling. All paths in this document are confirmed against the official Teachworks Postman API reference.'
+  version: '1.0'
+  contact:
+    name: Teachworks Support
+    url: https://teachworks.com/addons/api
+    email: support@teachworks.com
+servers:
+- url: https://api.teachworks.com/v1
+  description: Teachworks API
+security:
+- tokenAuth: []
+tags:
+- name: Subjects
+  description: Subjects taught.
+paths:
+  /subjects:
+    get:
+      operationId: listSubjects
+      tags:
+      - Subjects
+      summary: List all Subjects
+      parameters:
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollectionOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /subjects/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getSubject
+      tags:
+      - Subjects
+      summary: Retrieve a Subject
+      responses:
+        '200':
+          $ref: '#/components/responses/ResourceOk'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  parameters:
+    Page:
+      name: page
+      in: query
+      required: false
+      description: 1-based page number for pagination. Defaults to 1.
+      schema:
+        type: integer
+        default: 1
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The ID of the resource.
+      schema:
+        type: integer
+    PerPage:
+      name: per_page
+      in: query
+      required: false
+      description: Number of records per page. Defaults to 20, maximum 80.
+      schema:
+        type: integer
+        default: 20
+        maximum: 80
+  responses:
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    CollectionOk:
+      description: A paginated list of resources.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              additionalProperties: true
+    ResourceOk:
+      description: A single resource.
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: true
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Account API token passed in the Authorization header using the scheme "Authorization: Token token=API_TOKEN". Generate a token on the Integrations and Add-ons page in Teachworks. All requests must be over HTTPS.'
