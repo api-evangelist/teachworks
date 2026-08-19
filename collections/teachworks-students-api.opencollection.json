@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Teachworks Availabilities Students API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Students",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Students",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.teachworks.com/v1/students",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "1-based page number for pagination. Defaults to 1."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page. Defaults to 20, maximum 80."
+              }
+            ]
+          },
+          "docs": "List all Students"
+        },
+        {
+          "info": {
+            "name": "Create a Child Student",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.teachworks.com/v1/students",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Child Student"
+        },
+        {
+          "info": {
+            "name": "Retrieve a Student",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.teachworks.com/v1/students/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve a Student"
+        },
+        {
+          "info": {
+            "name": "Update a Child Student",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.teachworks.com/v1/students/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Child Student"
+        },
+        {
+          "info": {
+            "name": "Retrieve Student Lesson Totals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.teachworks.com/v1/students/:id/lesson_totals",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve Student Lesson Totals"
+        },
+        {
+          "info": {
+            "name": "Set Custom Field Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.teachworks.com/v1/students/:id/custom_fields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set Custom Field Values"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

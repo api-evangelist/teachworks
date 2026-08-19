@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Teachworks Availabilities Cost Premiums API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cost Premiums",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Cost Premiums",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.teachworks.com/v1/cost_premiums",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "1-based page number for pagination. Defaults to 1."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page. Defaults to 20, maximum 80."
+              }
+            ]
+          },
+          "docs": "List all Cost Premiums"
+        },
+        {
+          "info": {
+            "name": "Retrieve a Cost Premium",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.teachworks.com/v1/cost_premiums/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve a Cost Premium"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

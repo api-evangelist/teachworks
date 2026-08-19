@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Teachworks Availabilities Other Events API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Other Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Other Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.teachworks.com/v1/other_events",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "1-based page number for pagination. Defaults to 1."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page. Defaults to 20, maximum 80."
+              }
+            ]
+          },
+          "docs": "List all Other Events"
+        },
+        {
+          "info": {
+            "name": "Retrieve an Other Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.teachworks.com/v1/other_events/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve an Other Event"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

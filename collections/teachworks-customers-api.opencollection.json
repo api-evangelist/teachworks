@@ -1,0 +1,175 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Teachworks Availabilities Customers API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.teachworks.com/v1/customers",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "1-based page number for pagination. Defaults to 1."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page. Defaults to 20, maximum 80."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns customer profiles (family and independent student). Supports search by first_name, last_name, email, phone_number, city, state, zip, country, type (family or independent), and status (Active, Inactive, Prospective), plus id range filters and sort direction."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.teachworks.com/v1/customers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve a Customer"
+        },
+        {
+          "info": {
+            "name": "Update a Customer (Family or Independent Student)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.teachworks.com/v1/customers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Customer (Family or Independent Student)"
+        },
+        {
+          "info": {
+            "name": "Retrieve Customer Lesson Totals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.teachworks.com/v1/customers/:id/lesson_totals",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve Customer Lesson Totals"
+        },
+        {
+          "info": {
+            "name": "Set Custom Field Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.teachworks.com/v1/customers/:id/custom_fields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set Custom Field Values"
+        },
+        {
+          "info": {
+            "name": "Create a Family",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.teachworks.com/v1/customers/family",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Family"
+        },
+        {
+          "info": {
+            "name": "Create an Independent Student",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.teachworks.com/v1/customers/independent_student",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an Independent Student"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
