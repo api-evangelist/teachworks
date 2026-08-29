@@ -12,6 +12,18 @@ description: Teachworks is business management software for tutoring companies, 
   API is available on the Growth and Premium plans; there is no native webhook or
   WebSocket surface, and event-driven integrations are delivered through Zapier,
   Make, and Integrately polling.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
