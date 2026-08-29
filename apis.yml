@@ -465,6 +465,9 @@ apis:
   - type: OpenCollection
     url: collections/teachworks.opencollection.json
 common:
+- type: CapabilityMap
+  url: capabilities/teachworks-capability-edges.yml
+  name: Teachworks Business Capability Map
 - type: AgenticAccess
   url: agentic-access/teachworks-agentic-access.yml
 - type: VulnerabilityDisclosure

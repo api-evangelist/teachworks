@@ -1,0 +1,83 @@
+slug: teachworks
+provider: Teachworks
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Education
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Invoices
+  spec_file: teachworks-invoices-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.75
+  evidence: GET /invoices  listInvoices  List all Invoices; vendor "handles ... online billing and invoicing,
+    payments"
+  reason: Customer invoices issued to families/students are receivables documents, mapping to Accounts
+    Receivable Management.
+- tag: Lessons
+  spec_file: teachworks-lessons-api-openapi.yml
+  capability_id: BC-4730.10
+  capability_id_l1: BC-4730
+  capability_name: Class & Lesson Delivery
+  confidence: 0.75
+  evidence: POST /lessons  createLesson  Create a Lesson; PUT /lessons/{id}/add_student  Add Student to
+    Lesson; PUT /lessons/{id}/complete  Complete a Lesson
+  reason: Creating lessons, attaching students and marking lessons complete is the operational delivery
+    of tutoring instruction, matching Class & Lesson Delivery.
+- tag: Payment Allocations
+  spec_file: teachworks-payment-allocations-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.75
+  evidence: POST /payment_allocations  createPaymentAllocation  Create a Payment Allocation
+  reason: Allocating received customer payments against invoices is cash application within Accounts Receivable
+    Management, consistent with the vendor's "invoicing, payments" scope.
+- tag: Students
+  spec_file: teachworks-students-api-openapi.yml
+  capability_id: BC-4720.60
+  capability_id_l1: BC-4720
+  capability_name: Student Identifier & Lifecycle Records
+  confidence: 0.72
+  evidence: POST /students 'Create a Child Student'; PUT /students/{id}/custom_fields 'Set Custom Field
+    Values'; GET /students/{id}/lesson_totals 'Retrieve Student Lesson Totals'
+  reason: Maintains the authoritative student record (identity, custom attributes, lesson totals) for
+    an education provider, i.e. student records/lifecycle administration rather than academic transcripts.
+- tag: Wage Payments
+  spec_file: teachworks-wage-payments-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.72
+  evidence: POST /wage_payments createWagePayment 'Create a Wage Payment'; vendor covers 'teacher wages'
+  reason: Recording wage payments to teaching employees is payroll administration within HR operations.
+- tag: Credit Note Allocations
+  spec_file: teachworks-credit-note-allocations-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.7
+  evidence: GET /credit_note_allocations  listCreditNoteAllocations  List all Credit Note Allocations;
+    vendor handles "online billing and invoicing, payments"
+  reason: Credit notes allocated against customer invoices are a customer-side receivables adjustment,
+    consistent with Accounts Receivable Management in a billing/invoicing product.
+- tag: Employees
+  spec_file: teachworks-employees-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: POST /employees  createEmployee; PUT /employees/{id}/set_status  Set Employee Status; GET
+    /employees/{id}/earnings  Retrieve Employee Earnings
+  reason: CRUD over employee (teacher and staff) records plus status and earnings retrieval is core employee-record
+    and payroll administration, i.e. HR Operations Management. Educator-specific sub-capabilities (credentialing,
+    tenure, workload) are not evidenced.
