@@ -201,6 +201,8 @@ apis:
   humanURL: https://documenter.getpostman.com/view/10096149/SWTABydD
   baseURL: https://api.teachworks.com/v1
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
