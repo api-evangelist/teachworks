@@ -46,36 +46,15 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    ResourceOk:
-      description: A single resource.
-      content:
-        application/json:
-          schema:
-            type: object
-            additionalProperties: true
-    CollectionOk:
-      description: A paginated list of resources.
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              type: object
-              additionalProperties: true
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid API token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   parameters:
+    Page:
+      name: page
+      in: query
+      required: false
+      description: 1-based page number for pagination. Defaults to 1.
+      schema:
+        type: integer
+        default: 1
     PerPage:
       name: per_page
       in: query
@@ -85,14 +64,6 @@ components:
         type: integer
         default: 20
         maximum: 80
-    Page:
-      name: page
-      in: query
-      required: false
-      description: 1-based page number for pagination. Defaults to 1.
-      schema:
-        type: integer
-        default: 1
     Id:
       name: id
       in: path
@@ -110,6 +81,35 @@ components:
           type: array
           items:
             type: string
+  responses:
+    ResourceOk:
+      description: A single resource.
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: true
+    Unauthorized:
+      description: Missing or invalid API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    CollectionOk:
+      description: A paginated list of resources.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              additionalProperties: true
   securitySchemes:
     tokenAuth:
       type: apiKey

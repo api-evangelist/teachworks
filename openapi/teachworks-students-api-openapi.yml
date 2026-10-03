@@ -106,7 +106,38 @@ paths:
         '422':
           $ref: '#/components/responses/UnprocessableEntity'
 components:
+  parameters:
+    Page:
+      name: page
+      in: query
+      required: false
+      description: 1-based page number for pagination. Defaults to 1.
+      schema:
+        type: integer
+        default: 1
+    PerPage:
+      name: per_page
+      in: query
+      required: false
+      description: Number of records per page. Defaults to 20, maximum 80.
+      schema:
+        type: integer
+        default: 20
+        maximum: 80
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The ID of the resource.
+      schema:
+        type: integer
   responses:
+    UnprocessableEntity:
+      description: Validation failed for the submitted attributes.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     ResourceOk:
       description: A single resource.
       content:
@@ -114,17 +145,8 @@ components:
           schema:
             type: object
             additionalProperties: true
-    CollectionOk:
-      description: A paginated list of resources.
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              type: object
-              additionalProperties: true
-    UnprocessableEntity:
-      description: Validation failed for the submitted attributes.
+    Unauthorized:
+      description: Missing or invalid API token.
       content:
         application/json:
           schema:
@@ -135,37 +157,15 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid API token.
+    CollectionOk:
+      description: A paginated list of resources.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
-  parameters:
-    PerPage:
-      name: per_page
-      in: query
-      required: false
-      description: Number of records per page. Defaults to 20, maximum 80.
-      schema:
-        type: integer
-        default: 20
-        maximum: 80
-    Page:
-      name: page
-      in: query
-      required: false
-      description: 1-based page number for pagination. Defaults to 1.
-      schema:
-        type: integer
-        default: 1
-    Id:
-      name: id
-      in: path
-      required: true
-      description: The ID of the resource.
-      schema:
-        type: integer
+            type: array
+            items:
+              type: object
+              additionalProperties: true
   schemas:
     Error:
       type: object
