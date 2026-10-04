@@ -106,6 +106,16 @@ paths:
         '422':
           $ref: '#/components/responses/UnprocessableEntity'
 components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
   parameters:
     Page:
       name: page
@@ -115,6 +125,13 @@ components:
       schema:
         type: integer
         default: 1
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The ID of the resource.
+      schema:
+        type: integer
     PerPage:
       name: per_page
       in: query
@@ -124,29 +141,9 @@ components:
         type: integer
         default: 20
         maximum: 80
-    Id:
-      name: id
-      in: path
-      required: true
-      description: The ID of the resource.
-      schema:
-        type: integer
   responses:
     UnprocessableEntity:
       description: Validation failed for the submitted attributes.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ResourceOk:
-      description: A single resource.
-      content:
-        application/json:
-          schema:
-            type: object
-            additionalProperties: true
-    Unauthorized:
-      description: Missing or invalid API token.
       content:
         application/json:
           schema:
@@ -166,16 +163,19 @@ components:
             items:
               type: object
               additionalProperties: true
-  schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        errors:
-          type: array
-          items:
-            type: string
+    ResourceOk:
+      description: A single resource.
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: true
+    Unauthorized:
+      description: Missing or invalid API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   requestBodies:
     GenericJson:
       required: true
