@@ -1,0 +1,479 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/teachworks/integrations
+checked:
+- https://composio.dev/toolkits/teachworks
+- https://monid.ai/tools/teachworks
+- https://n8n.io/integrations/teachworks/
+- https://zapier.com/apps/teachworks/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: teachworks
+  url: https://zapier.com/apps/teachworks/integrations
+  external_url: https://teachworks.com/
+  partner_tier: BRONZE
+  triggers:
+  - key: cost_premium
+    label: New Cost Premium
+  - key: lesson_completed
+    label: Lesson Completed
+  - key: new_availability
+    label: New Availability
+  - key: new_customer
+    label: New Customer
+  - key: new_employee
+    label: New Employee
+  - key: new_invoice
+    label: New Invoice
+  - key: new_lesson
+    label: New Lesson
+  - key: new_lesson_participant
+    label: New Lesson Participant
+  - key: new_location
+    label: New Location
+  - key: new_other_event
+    label: New Other Event
+  - key: new_package_balance_alert
+    label: New Package Balance Alert
+  - key: new_payment
+    label: New Payment
+  - key: new_refund
+    label: New Refund
+  - key: new_service
+    label: New Service
+  - key: new_student
+    label: New Student
+  - key: new_unavailability
+    label: New Unavailability
+  - key: new_wage_payment
+    label: New Wage Payment
+  - key: new_wage_tier
+    label: New Wage Tier
+  actions:
+  - key: create_child_student
+    label: Create Child Student
+  - key: create_employee
+    label: Create Employee
+  - key: create_family
+    label: Create Family
+  - key: create_independent_student
+    label: Create Independent Student
+  - key: create_lesson
+    label: Create Lesson
+  - key: create_payment
+    label: Create Payment
+  - key: update_customer_custom_values
+    label: Update Customer Custom Field Values
+  - key: update_student_custom_values
+    label: Update Student Custom Field Values
+  searches:
+  - key: find_child_student
+    label: Find Child Student
+  - key: find_customer
+    label: Find Customer
+  - key: find_employee
+    label: Find Employee
+  - key: find_family
+    label: Find Family
+  - key: find_independent_student
+    label: Find Independent Student (Full Details)
+  - key: find_independent_student_s
+    label: Find Independent Student (Student Details)
+  - key: find_payment
+    label: Find Payment
+edges:
+- partner_name: monday.com
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/monday
+  direction: third-party
+  category: Project Management
+  partner_url: https://monday.com/
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Close
+  partner: close
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/close
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://www.close.com/?utm_source=Partner&utm_medium=Integration_Listing&utm_campaign=2025_Partnerships&utm_content=Home
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: Xero
+  partner: xero
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/xero
+  direction: third-party
+  category: Accounting
+  partner_url: https://xero5440.partnerlinks.io/uvwuuwrxyoi8
+- partner_name: Google Calendar
+  partner: google-calendar
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/google-calendar
+  direction: third-party
+  category: Calendar
+  partner_url: https://calendar.google.com/
+- partner_name: Microsoft Excel
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/excel
+  direction: third-party
+  category: Microsoft
+  partner_url: https://zapier.com/office.com
+- partner_name: Mailchimp
+  partner: mailchimp
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/mailchimp
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://mailchimp.com/
+- partner_name: Paperform
+  partner: paperform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/paperform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://paperform.co/?utm_medium=partners&utm_source=Zapier&utm_campaign=integration_partners&utm_content=integration_page
+- partner_name: GoCardless
+  partner: gocardless
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/gocardless
+  direction: third-party
+  category: Payment Processing
+  partner_url: https://gocardless.com/
+- partner_name: Trello
+  partner: trello
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/trello
+  direction: third-party
+  category: Project Management
+  partner_url: https://trello.com/
+- partner_name: Wix
+  partner: wix
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/wix
+  direction: third-party
+  category: Website Builders
+  partner_url: https://www.wix.com/
+- partner_name: Stripe (Legacy)
+  partner: stripe
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/stripe-legacy
+  direction: third-party
+  category: Payment Processing
+  partner_url: https://stripe.com/
+- partner_name: Jotform
+  partner: jotform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/jotform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://www.jotform.com/
+- partner_name: WhatsApp Notifications
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/whatsapp-notifications
+  direction: third-party
+  category: Communication
+  partner_url: null
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: Notion
+  partner: notion
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/notion
+  direction: third-party
+  category: Task Management
+  partner_url: https://www.notion.so/
+- partner_name: Squarespace Forms
+  partner: squarespace
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/squarespace-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.squarespace.com/
+- partner_name: Calendly
+  partner: calendly
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/calendly
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://calendly.com/?utm_medium=partner&utm_source=zapier&utm_campaign=main_partner_page&utm_content=main_inbound_link
+- partner_name: SimplyBook.me
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/simplybook
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://simplybook.me/
+- partner_name: WooCommerce
+  partner: woocommerce
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/woocommerce
+  direction: third-party
+  category: eCommerce
+  partner_url: https://woocommerce.com/products/woocommerce-zapier/?utm_source=zapier&utm_medium=website&utm_campaign=integration
+- partner_name: Serviceaide
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/serviceaide
+  direction: third-party
+  category: Customer Support
+  partner_url: https://serviceaide.com/
+- partner_name: Birdeye
+  partner: birdeye
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/birdeye
+  direction: third-party
+  category: Reviews
+  partner_url: https://birdeye.com/
+- partner_name: axiom.ai
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/axiomai
+  direction: third-party
+  category: Productivity
+  partner_url: https://axiom.ai/
+- partner_name: Google Forms (Legacy)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/google-forms-legacy
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+- partner_name: ActiveCampaign
+  partner: activecampaign
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/activecampaign
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.activecampaign.com/?utm_source=unpaid_syndication_website&utm_medium=referral&utm_campaign=zapier_listing
+- partner_name: Todoist
+  partner: todoist
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/todoist
+  direction: third-party
+  category: Task Management
+  partner_url: https://todoist.com/
+- partner_name: HoneyBook
+  partner: honeybook
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/honeybook
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://www.honeybook.com/
+- partner_name: Thinkific
+  partner: thinkific
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/thinkific
+  direction: third-party
+  category: Online Courses
+  partner_url: http://www.thinkific.com/
+- partner_name: Podio
+  partner: podio
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/podio
+  direction: third-party
+  category: Project Management
+  partner_url: https://podio.com/
+templates:
+- title: Create sales invoices in Xero from new Teachworks invoices
+  url: https://zapier.com/apps/teachworks/integrations/xero/490989/create-sales-invoices-in-xero-from-new-teachworks-invoices
+  apps:
+  - teachworks
+  - xero
+- title: Add new Teachworks students to Mailchimp as subscribers
+  url: https://zapier.com/apps/mailchimp/integrations/teachworks/490894/add-new-teachworks-students-to-mailchimp-as-subscribers
+  apps:
+  - teachworks
+  - mailchimp
+- title: Add Contact to Customer List With Email in Google Ads for New Student in Teachworks
+  url: https://zapier.com/apps/google-ads/integrations/teachworks/1007923/add-contact-to-customer-list-with-email-in-google-ads-for-new-student-in-teachworks
+  apps:
+  - teachworks
+  - google-ads
+- title: Create payments in Teachworks from new payments in Xero
+  url: https://zapier.com/apps/teachworks/integrations/xero/490971/create-payments-in-teachworks-from-new-payments-in-xero
+  apps:
+  - xero
+  - teachworks
+- title: Add new Teachworks customers to Mailchimp as subscribers
+  url: https://zapier.com/apps/mailchimp/integrations/teachworks/490922/add-new-teachworks-customers-to-mailchimp-as-subscribers
+  apps:
+  - teachworks
+  - mailchimp
+- title: Create Teachworks families from new Jotform submissions
+  url: https://zapier.com/apps/jotform/integrations/teachworks/490927/create-teachworks-families-from-new-jotform-submissions
+  apps:
+  - jotform
+  - teachworks
+- title: Create independent students in Teachworks from new Jotform submissions
+  url: https://zapier.com/apps/jotform/integrations/teachworks/490938/create-independent-students-in-teachworks-from-new-jotform-submissions
+  apps:
+  - jotform
+  - teachworks
+- title: Add new Teachworks payments to Xero
+  url: https://zapier.com/apps/teachworks/integrations/xero/490950/add-new-teachworks-payments-to-xero
+  apps:
+  - teachworks
+  - xero
+- title: Send channel messages in Slack for new Teachworks availabilities
+  url: https://zapier.com/apps/slack/integrations/teachworks/490976/send-channel-messages-in-slack-for-new-teachworks-availabilities
+  apps:
+  - teachworks
+  - slack
+- title: Create families in Teachworks from new Typeform submissions
+  url: https://zapier.com/apps/teachworks/integrations/typeform/490979/create-families-in-teachworks-from-new-typeform-submissions
+  apps:
+  - typeform
+  - teachworks
+- title: Create Teachworks payments from new successful sales in Paypal
+  url: https://zapier.com/apps/paypal/integrations/teachworks/490999/create-teachworks-payments-from-new-successful-sales-in-paypal
+  apps:
+  - paypal
+  - teachworks
+- title: Create Google Meet meetings for new Teachworks lessons
+  url: https://zapier.com/apps/google-meet/integrations/teachworks/1279022/create-google-meet-meetings-for-new-teachworks-lessons
+  apps:
+  - teachworks
+  - google-meet
+template_total: 72
