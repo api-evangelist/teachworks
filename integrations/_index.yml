@@ -117,7 +117,6 @@
   arazzo: null
 - slug: teachworks-monday-com
   label: monday.com
-  partner: monday-com
   partner_name: monday.com
   category: Project Management
   type: marketplace
@@ -125,7 +124,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/teachworks/integrations/monday
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: teachworks-hubspot
   label: HubSpot
@@ -177,7 +176,6 @@
   arazzo: null
 - slug: teachworks-microsoft-excel
   label: Microsoft Excel
-  partner: microsoft-excel
   partner_name: Microsoft Excel
   category: Microsoft
   type: marketplace
@@ -185,7 +183,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/teachworks/integrations/excel
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: teachworks-paperform
   label: Paperform
@@ -420,5 +418,30 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/teachworks/integrations/podio
   source: edge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-zapier
+  label: Zapier
+  partner: zapier
+  partner_name: Zapier
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  evidence: https://zapier.com/apps/teachworks/integrations
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: Teachworks
+    matched_domain: teachworks.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: teachworks
+    beta: false
+    builder: unknown (not in the directory record)
   status: pending-generation
   arazzo: null
