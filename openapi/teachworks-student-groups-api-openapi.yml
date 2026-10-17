@@ -46,32 +46,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        errors:
-          type: array
-          items:
-            type: string
   parameters:
-    Page:
-      name: page
-      in: query
-      required: false
-      description: 1-based page number for pagination. Defaults to 1.
-      schema:
-        type: integer
-        default: 1
-    Id:
-      name: id
-      in: path
-      required: true
-      description: The ID of the resource.
-      schema:
-        type: integer
     PerPage:
       name: per_page
       in: query
@@ -81,9 +56,30 @@ components:
         type: integer
         default: 20
         maximum: 80
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The ID of the resource.
+      schema:
+        type: integer
+    Page:
+      name: page
+      in: query
+      required: false
+      description: 1-based page number for pagination. Defaults to 1.
+      schema:
+        type: integer
+        default: 1
   responses:
     NotFound:
       description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API token.
       content:
         application/json:
           schema:
@@ -104,12 +100,16 @@ components:
           schema:
             type: object
             additionalProperties: true
-    Unauthorized:
-      description: Missing or invalid API token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
   securitySchemes:
     tokenAuth:
       type: apiKey
