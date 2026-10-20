@@ -15,6 +15,7 @@
   evidence: https://zapier.com/apps/teachworks/integrations/xero/490989/create-sales-invoices-in-xero-from-new-teachworks-invoices
   template: https://zapier.com/apps/teachworks/integrations/xero/490989/create-sales-invoices-in-xero-from-new-teachworks-invoices
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: teachworks-add-new-teachworks-students-to-mailchimp-as-subscribers
@@ -29,6 +30,7 @@
   evidence: https://zapier.com/apps/mailchimp/integrations/teachworks/490894/add-new-teachworks-students-to-mailchimp-as-subscribers
   template: https://zapier.com/apps/mailchimp/integrations/teachworks/490894/add-new-teachworks-students-to-mailchimp-as-subscribers
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: teachworks-create-payments-in-teachworks-from-new-payments-in-xero
@@ -43,6 +45,7 @@
   evidence: https://zapier.com/apps/teachworks/integrations/xero/490971/create-payments-in-teachworks-from-new-payments-in-xero
   template: https://zapier.com/apps/teachworks/integrations/xero/490971/create-payments-in-teachworks-from-new-payments-in-xero
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: teachworks-add-new-teachworks-customers-to-mailchimp-as-subscribers
@@ -57,6 +60,7 @@
   evidence: https://zapier.com/apps/mailchimp/integrations/teachworks/490922/add-new-teachworks-customers-to-mailchimp-as-subscribers
   template: https://zapier.com/apps/mailchimp/integrations/teachworks/490922/add-new-teachworks-customers-to-mailchimp-as-subscribers
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: teachworks-create-teachworks-families-from-new-jotform-submissions
@@ -71,6 +75,7 @@
   evidence: https://zapier.com/apps/jotform/integrations/teachworks/490927/create-teachworks-families-from-new-jotform-submissions
   template: https://zapier.com/apps/jotform/integrations/teachworks/490927/create-teachworks-families-from-new-jotform-submissions
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: teachworks-create-independent-students-in-teachworks-from-new-jotform-submissions
@@ -85,6 +90,7 @@
   evidence: https://zapier.com/apps/jotform/integrations/teachworks/490938/create-independent-students-in-teachworks-from-new-jotform-submissions
   template: https://zapier.com/apps/jotform/integrations/teachworks/490938/create-independent-students-in-teachworks-from-new-jotform-submissions
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: teachworks-add-new-teachworks-payments-to-xero
@@ -99,6 +105,7 @@
   evidence: https://zapier.com/apps/teachworks/integrations/xero/490950/add-new-teachworks-payments-to-xero
   template: https://zapier.com/apps/teachworks/integrations/xero/490950/add-new-teachworks-payments-to-xero
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: teachworks-send-channel-messages-in-slack-for-new-teachworks-availabilities
@@ -113,311 +120,7 @@
   evidence: https://zapier.com/apps/slack/integrations/teachworks/490976/send-channel-messages-in-slack-for-new-teachworks-availabilities
   template: https://zapier.com/apps/slack/integrations/teachworks/490976/send-channel-messages-in-slack-for-new-teachworks-availabilities
   source: template
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-monday-com
-  label: monday.com
-  partner_name: monday.com
-  category: Project Management
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/monday
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: teachworks-hubspot
-  label: HubSpot
-  partner: hubspot
-  partner_name: HubSpot
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/hubspot
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-close
-  label: Close
-  partner: close
-  partner_name: Close
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/close
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-airtable
-  label: Airtable
-  partner: airtable
-  partner_name: Airtable
-  category: Databases
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/airtable
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-google-calendar
-  label: Google Calendar
-  partner: google-calendar
-  partner_name: Google Calendar
-  category: Calendar
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/google-calendar
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-microsoft-excel
-  label: Microsoft Excel
-  partner_name: Microsoft Excel
-  category: Microsoft
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/excel
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: teachworks-paperform
-  label: Paperform
-  partner: paperform
-  partner_name: Paperform
-  category: Forms & Surveys
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/paperform
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-gocardless
-  label: GoCardless
-  partner: gocardless
-  partner_name: GoCardless
-  category: Payment Processing
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/gocardless
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-trello
-  label: Trello
-  partner: trello
-  partner_name: Trello
-  category: Project Management
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/trello
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-wix
-  label: Wix
-  partner: wix
-  partner_name: Wix
-  category: Website Builders
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/wix
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-stripe-legacy
-  label: Stripe (Legacy)
-  partner: stripe
-  partner_name: Stripe (Legacy)
-  category: Payment Processing
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/stripe-legacy
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-whatsapp-notifications
-  label: WhatsApp Notifications
-  partner_name: WhatsApp Notifications
-  category: Communication
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/whatsapp-notifications
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: teachworks-notion
-  label: Notion
-  partner: notion
-  partner_name: Notion
-  category: Task Management
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/notion
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-squarespace-forms
-  label: Squarespace Forms
-  partner: squarespace
-  partner_name: Squarespace Forms
-  category: Forms & Surveys
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/squarespace-forms
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-calendly
-  label: Calendly
-  partner: calendly
-  partner_name: Calendly
-  category: Scheduling & Booking
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/calendly
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-simplybook-me
-  label: SimplyBook.me
-  partner_name: SimplyBook.me
-  category: Scheduling & Booking
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/simplybook
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: teachworks-woocommerce
-  label: WooCommerce
-  partner: woocommerce
-  partner_name: WooCommerce
-  category: eCommerce
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/woocommerce
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-serviceaide
-  label: Serviceaide
-  partner_name: Serviceaide
-  category: Customer Support
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/serviceaide
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: teachworks-birdeye
-  label: Birdeye
-  partner: birdeye
-  partner_name: Birdeye
-  category: Reviews
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/birdeye
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-axiom-ai
-  label: axiom.ai
-  partner_name: axiom.ai
-  category: Productivity
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/axiomai
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: teachworks-google-forms-legacy
-  label: Google Forms (Legacy)
-  partner_name: Google Forms (Legacy)
-  category: Forms & Surveys
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/google-forms-legacy
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: teachworks-activecampaign
-  label: ActiveCampaign
-  partner: activecampaign
-  partner_name: ActiveCampaign
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/activecampaign
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-todoist
-  label: Todoist
-  partner: todoist
-  partner_name: Todoist
-  category: Task Management
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/todoist
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-honeybook
-  label: HoneyBook
-  partner: honeybook
-  partner_name: HoneyBook
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/honeybook
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-thinkific
-  label: Thinkific
-  partner: thinkific
-  partner_name: Thinkific
-  category: Online Courses
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/thinkific
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: teachworks-podio
-  label: Podio
-  partner: podio
-  partner_name: Podio
-  category: Project Management
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/teachworks/integrations/podio
-  source: edge
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: teachworks-zapier
@@ -444,4 +147,337 @@
     beta: false
     builder: unknown (not in the directory record)
   status: not-a-workflow
+  arazzo: null
+- slug: teachworks-close
+  label: Close
+  partner: close
+  partner_name: Close
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/close
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-paperform
+  label: Paperform
+  partner: paperform
+  partner_name: Paperform
+  category: Forms & Surveys
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/paperform
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-gocardless
+  label: GoCardless
+  partner: gocardless
+  partner_name: GoCardless
+  category: Payment Processing
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/gocardless
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-wix
+  label: Wix
+  partner: wix
+  partner_name: Wix
+  category: Website Builders
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/wix
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-stripe-legacy
+  label: Stripe (Legacy)
+  partner: stripe
+  partner_name: Stripe (Legacy)
+  category: Payment Processing
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/stripe-legacy
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-notion
+  label: Notion
+  partner: notion
+  partner_name: Notion
+  category: Task Management
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/notion
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-simplybook-me
+  label: SimplyBook.me
+  partner_name: SimplyBook.me
+  category: Scheduling & Booking
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/simplybook
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: teachworks-woocommerce
+  label: WooCommerce
+  partner: woocommerce
+  partner_name: WooCommerce
+  category: eCommerce
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/woocommerce
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-serviceaide
+  label: Serviceaide
+  partner_name: Serviceaide
+  category: Customer Support
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/serviceaide
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: teachworks-birdeye
+  label: Birdeye
+  partner: birdeye
+  partner_name: Birdeye
+  category: Reviews
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/birdeye
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-hubspot
+  label: HubSpot
+  partner: hubspot
+  partner_name: HubSpot
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/hubspot
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-rotessa
+  label: Rotessa
+  partner: rotessa
+  partner_name: Rotessa
+  category: Payment Processing
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/rotessa
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-monday-com
+  label: monday.com
+  partner: monday-com
+  partner_name: monday.com
+  category: Project Management
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/monday
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-axiom-ai
+  label: axiom.ai
+  partner_name: axiom.ai
+  category: Productivity
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/axiomai
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: teachworks-google-forms-legacy
+  label: Google Forms (Legacy)
+  partner: google-forms
+  partner_name: Google Forms (Legacy)
+  category: Forms & Surveys
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/google-forms-legacy
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-google-calendar
+  label: Google Calendar
+  partner: google-calendar
+  partner_name: Google Calendar
+  category: Calendar
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/google-calendar
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-whatsapp-notifications
+  label: WhatsApp Notifications
+  partner_name: WhatsApp Notifications
+  category: Communication
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/whatsapp-notifications
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: teachworks-todoist
+  label: Todoist
+  partner: todoist
+  partner_name: Todoist
+  category: Task Management
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/todoist
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-honeybook
+  label: HoneyBook
+  partner: honeybook
+  partner_name: HoneyBook
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/honeybook
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-thinkific
+  label: Thinkific
+  partner: thinkific
+  partner_name: Thinkific
+  category: Online Courses
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/thinkific
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-podio
+  label: Podio
+  partner: podio
+  partner_name: Podio
+  category: Project Management
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/podio
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-zoho-sign
+  label: Zoho Sign
+  partner: zoho-sign
+  partner_name: Zoho Sign
+  category: Signatures
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/zoho-sign
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-docparser
+  label: Docparser
+  partner: docparser
+  partner_name: Docparser
+  category: Documents
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/docparser
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-anywhereworks
+  label: AnywhereWorks
+  partner_name: AnywhereWorks
+  category: Team Chat
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/anywhereworks
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: teachworks-stripe
+  label: Stripe
+  partner: stripe
+  partner_name: Stripe
+  category: Payment Processing
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/stripe
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: teachworks-calendly
+  label: Calendly
+  partner: calendly
+  partner_name: Calendly
+  category: Scheduling & Booking
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/teachworks/integrations/calendly
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
   arazzo: null
